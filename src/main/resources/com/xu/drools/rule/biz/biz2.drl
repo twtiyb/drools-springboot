@@ -1,0 +1,41 @@
+package com.xu.drools;
+import  com.xu.drools.utils.CheckUtil;
+import com.xu.drools.bean.Trade;
+import com.xu.drools.bean.TradeRequest;
+import java.util.ArrayList
+import java.util.List
+import com.xu.drools.bean.WuItem;
+
+//
+//dialect "java"
+//function int checkQty(List<WuItem> sitems,List<WuItem> initems){
+//		int qty=0;
+//
+//      for(WuItem wu:sitems){
+//			for(WuItem wuin : initems)
+//			{
+//              if(wu.getName().equals(wuin.getName())){
+//				  qty=qty+wu.getqty();
+//			  }
+//			}
+//		}
+//
+//
+//		return qty;
+//}
+
+//test git flow
+
+rule "biz2"
+//    no-loop
+	when
+	    $q : TradeRequest()
+        $t : Trade(effect != true);
+        eval(Trade.checkQty($t.getItems(),$q.getItems()) > 2)
+
+    then
+        $t.setTotalFee(6222D);
+        $t.setEffect(true);
+        System.out.println("11111111111============");
+		System.out.println($t.toString());
+end
