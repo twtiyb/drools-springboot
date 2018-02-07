@@ -25,6 +25,7 @@ import com.xu.drools.bean.WuItem;
 //}
 
 //test git flow
+//test git flow2
 
 rule "biz2"
 //    no-loop
