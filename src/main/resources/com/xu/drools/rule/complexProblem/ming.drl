@@ -10,7 +10,7 @@ import com.xu.drools.bean.XiaoMing;
 
 //规则1：1元钱一瓶汽水。有钱就买水，空瓶+1，钱-1，喝水+1；
 rule "rule1"
-    salience 3
+    salience 2
     when
         $m:XiaoMing(money>0);
     then
@@ -23,7 +23,7 @@ end
 
 //规则2：两个空瓶换一瓶汽水。有空瓶就换钱，空瓶-2，钱+1；
 rule "rule2"
-    salience 2
+    salience 3
     when
         $m:XiaoMing(bottle>=2);
     then

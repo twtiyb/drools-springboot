@@ -23,14 +23,14 @@ public class rule2 {
         KieSession ksession = kc.newKieSession("rule2KS");
 
         Person p1 = new Person(35, "xu", "handsome");
-        Person p2 = new Person(30, "hua", "handsome");
+        Person p2 = new Person(33, "hua", "handsome");
 
         ksession.insert(p1);
         ksession.insert(p2);
 
         ksession.fireAllRules();
 
-        QueryResults results = ksession.getQueryResults("people2");
+        QueryResults results = ksession.getQueryResults("people2",34);
         System.out.println("we have " + results.size() + " people over the age  of 30");
 
         System.out.println("These people are are over 30:");

@@ -1,0 +1,21 @@
+package com.xu.drools;
+import com.xu.drools.bean.Trade;
+import com.xu.drools.bean.TradeRequest;
+rule "biz1"
+//    no-loop
+	when
+	    $q : TradeRequest()
+        $p : Trade(totalFee >= $q.totolFee && effect != true);
+    then
+        $p.setTotalFee($p.getTotalFee() + $q.getAdd_fee());
+        $p.setEffect(true);
+        update($p);
+        System.out.println("11111111111============");
+		System.out.println($p.toString());
+end
+
+//# 这里可以加一个参数来表达，返回已经受规则影响的订单
+
+query "return1"
+    person : Trade(effect == true)
+end

@@ -18,7 +18,6 @@ public class rule1 {
     private static void execute(KieContainer kc) {
         KieSession ksession = kc.newKieSession("rule1KS");
 
-
         ksession.fireAllRules();
 
         ksession.dispose();

@@ -1,12 +1,12 @@
 package com.xu.drools.bean;
 
-
 import java.io.Serializable;
-public class Person implements Serializable {
+
+public class WuItem implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer age;
+    private Integer qty;
 
     private String name;
 
@@ -14,21 +14,21 @@ public class Person implements Serializable {
 
 
 
-    public Person() {
+    public WuItem() {
     }
 
-    public Person(Integer age, String name, String desc) {
-        this.age = age;
+    public WuItem(Integer qty, String name, String desc) {
+        this.qty = qty;
         this.name = name;
         this.desc = desc;
     }
 
-    public Integer getAge() {
-        return age;
+    public Integer getqty() {
+        return qty;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
+    public void setqty(Integer qty) {
+        this.qty = qty;
     }
 
     public String getName() {

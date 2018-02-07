@@ -33,6 +33,8 @@ public class HonestPoliticianExample {
         ksession.fireAllRules();
 
         ksession.dispose();
+
+        System.out.println(ksession.getQueryResults(""));
     }
 
 }
