@@ -1,0 +1,25 @@
+package com.xu.drools;
+import com.xu.drools.entity.Container;
+import com.xu.drools.entity.Item;
+import com.xu.drools.entity.Operation;
+
+
+rule "sameBatchNoContainer"
+	when
+	    Container($o : itemList)
+	    $i : Item()
+	    $op : Operation()
+        $a : Item() from $o
+        eval($i.getBatch() == $a.getBatch())
+//        eval(Item().getBatch() == Container(itemList).getBatch())
+    then
+        $op.setOperation($op.getOperation() || true);
+        System.out.println($op.getOperation() || true);
+
+end
+
+//# 这里可以加一个参数来表达，返回已经受规则影响的订单
+//
+//query "return1"
+//    person : $op
+//end
